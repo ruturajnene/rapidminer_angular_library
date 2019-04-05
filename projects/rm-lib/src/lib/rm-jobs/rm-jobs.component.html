@@ -1,0 +1,36 @@
+<div class="container-fluid" *ngIf="get_process">
+  Process Path
+  <input [(ngModel)]="processPath"
+         placeholder="Process Path"
+         class="form-control"/>
+  <button (click)="getProcess(processPath)"
+          class="btn btn-primary btn-block">
+    Get Parameters
+  </button>
+</div>
+<div *ngIf="edit_params" class="container-fluid">
+
+  <div *ngFor="let item of processParam">
+    <label>{{item.key.substring(2,item.key.length-1)}}</label>
+    <input *ngIf="!data||(data&&item.key!='%{data_source}')" placeholder="{{item.key.substring(2,item.key.length-1)}}"
+           name="param"
+           class="form-control"
+           [(ngModel)]="item.value"/>
+    <input *ngIf="data&&item.key=='%{data_source}'" value="{{item.value}}" [disabled]="true" placeholder="{{item.key.substring(2,item.key.length-1)}}"
+           name="param"
+           class="form-control"/>
+  </div>
+  <button (click)="submitJob()"
+          class="btn btn-primary btn-block">Submit Job</button>
+</div>
+<div *ngIf="submit_job" class="container-fluid">
+  <div *ngFor="let key of Object.keys(job_response)">
+    {{key+' : '+job_response[key]}}
+  </div>
+</div>
+
+<div class="container-fluid">
+  <button (click)="logout()"
+          class="btn btn-danger btn-block">Logout
+  </button>
+</div>

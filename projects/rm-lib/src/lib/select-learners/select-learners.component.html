@@ -1,0 +1,9 @@
+<mat-grid-list  cols="2" rowHeight="2:1">
+  <mat-grid-tile><mat-slide-toggle name="decision-tree" (change)="onChange()" color="primary" [(ngModel)]="dt">Decision Tree</mat-slide-toggle>
+  </mat-grid-tile>
+  <mat-grid-tile><mat-slide-toggle (change)="onChange()" color="primary" [(ngModel)]="nb">Naive Bayes</mat-slide-toggle>
+  </mat-grid-tile>
+  <mat-grid-tile><mat-slide-toggle (change)="onChange()" color="primary" [(ngModel)]="glm">Generalized Linear Model</mat-slide-toggle>
+  </mat-grid-tile>
+  <mat-grid-tile>4</mat-grid-tile>
+</mat-grid-list>

@@ -1,0 +1,6 @@
+<div *ngIf="showResults" class="container-fluid">
+  <rml-data-table serviceName="{{serviceName}}" [data]="data" [params]="params" [trigger]="trigger"></rml-data-table>
+</div>
+<div *ngIf="!showResults">
+  <mat-spinner  style="margin: 0 auto"></mat-spinner>
+</div>

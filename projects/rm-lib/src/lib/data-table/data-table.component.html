@@ -1,0 +1,18 @@
+<div id="body">
+  <table class="table">
+    <thead class="thead-dark">
+    <tr>
+      <th *ngFor="let head of fieldNames">{{head}}</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let example of outputData | slice:0: size? size:100">
+      <td *ngFor="let val of Object.values(example)">
+
+      {{val||isNaN(val)?val:Number.parseFloat(val).toFixed(3)}}
+
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
